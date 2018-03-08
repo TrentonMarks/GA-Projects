@@ -32,4 +32,5 @@ IMPROVEMENTS TO MAKE
 2) Add CSS and Animations (titles, headers, popup messages, etc.).
 3) Create game navigation (start game button, directions button, restart button, etc.).
 4) Alert when a ship has been destroyed (ally or enemy).
+5) Afer the User fires, set a 1-3 second timeout before the AI fires.
 
