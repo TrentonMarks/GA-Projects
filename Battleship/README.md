@@ -1,7 +1,11 @@
 PROJECT 1 -- Using HTML, CSS, JavaScript, and jQuery, create a two-player game that is play in the DOM.
+
 NAME: TRENTON MARKS
+
 GAME: BATTLESHIP
+
 LINK:  https://trentonmarks.github.io/Battleship/
+
 TECHNOLOGIES USED: HTML, CSS, JavaScript, jQuery
 
 
