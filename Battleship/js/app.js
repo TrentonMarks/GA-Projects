@@ -238,38 +238,59 @@ $(()=>{
         }
     };
 
-    /*======== USER AND AI'S INSTANTIATED GAMEBOARDS ========*/
-    // User's map
-    const userMap = new Map(5, 5, '.user-container', true);
 
-    // AI's map
-    const aiMap = new Map(5, 5, '.ai-container', false);
+    /*======== START BUTTON ========*/
+    // Mouseenter
+    $('#start').mouseenter(()=>{
+        $('#start').css({
+            'background-color': 'gray',
+            'font-size': '28px'
+        });
+    });
+    // Mouseleave
+    $('#start').mouseleave(()=>{
+        $('#start').css({
+            'background-color': 'transparent',
+            'font-size': '24px'
+        });
+    });
+    // On Click
+    $('#start').one('click', ()=>{
 
-    // Sets maps as opponents to one another
-    userMap.setOpponent(aiMap);
-    aiMap.setOpponent(userMap);
+        $('#start').remove();
 
-    /*======== USER AND AI'S INSTANTIATED SHIPS ========*/
-    // User's ships
-    const userLargeShip = new Ship(4);
-    const userMediumShip = new Ship(3);
-    const userSmallShip = new Ship(2);
 
-    // AI's ships
-    const aiLargeShip = new Ship(4);
-    const aiMediumShip = new Ship(3);
-    const aiSmallShip = new Ship(2);
+        /*======== USER AND AI'S INSTANTIATED GAMEBOARDS ========*/
+        // User's map
+        const userMap = new Map(5, 5, '.user-container', true);
 
-    /*======== ADDING SHIPS TO BOARDS ========*/
-    // Adding ships to user gameboard
-    userMap.addShip(userLargeShip);
-    userMap.addShip(userMediumShip);
-    userMap.addShip(userSmallShip);
-    // console.log(userMap);
+        // AI's map
+        const aiMap = new Map(5, 5, '.ai-container', false);
+        // Sets maps as opponents to one another
+        userMap.setOpponent(aiMap);
+        aiMap.setOpponent(userMap);
 
-    // Adding ships to AI gameboard
-    aiMap.addShip(aiLargeShip);
-    aiMap.addShip(aiMediumShip);
-    aiMap.addShip(aiSmallShip);
-    // console.log(aiMap);
+        /*======== USER AND AI'S INSTANTIATED SHIPS ========*/
+        // User's ships
+        const userLargeShip = new Ship(4);
+        const userMediumShip = new Ship(3);
+        const userSmallShip = new Ship(2);
+
+        // AI's ships
+        const aiLargeShip = new Ship(4);
+        const aiMediumShip = new Ship(3);
+        const aiSmallShip = new Ship(2);
+
+
+        /*======== ADDING SHIPS TO BOARDS ========*/
+        // Adding ships to user gameboard
+        userMap.addShip(userLargeShip);
+        userMap.addShip(userMediumShip);
+        userMap.addShip(userSmallShip);
+
+        // Adding ships to AI gameboard
+        aiMap.addShip(aiLargeShip);
+        aiMap.addShip(aiMediumShip);
+        aiMap.addShip(aiSmallShip);
+    });
 });
