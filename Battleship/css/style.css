@@ -1,4 +1,5 @@
 body {
+    background-image: url('images/background.png');
     background-color: #202123;
     background-repeat: no-repeat;
     background-size: cover;
