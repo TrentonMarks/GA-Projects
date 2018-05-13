@@ -2,7 +2,7 @@ PROJECT 1 -- Using HTML, CSS, JavaScript, and jQuery, create a two-player game t
 
 NAME: TRENTON MARKS
 
-GAME: BATTLESHIP
+GAME: BATTLESHIP GALACTICA
 
 LINK:  https://TrentonMarks.github.io/Battleship/
 
