@@ -1,0 +1,33 @@
+<!-- EDIT PROFILE PAGE -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <link rel="stylesheet" href="/css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+        <meta charset="utf-8">
+        <title>Left.Right.</title>
+    </head>
+    <body>
+
+        <!-- Header Block with Title -->
+        <% include ../partials/header.ejs %>
+
+        <!-- Form that allows user to edit their profile -->
+        <div class="edit-profile-form">
+            <form action="/users?_method=PUT" method="POST">
+                <h1>Edit Profile</h1>
+                <input type="text" name="username" placeholder="New Username">
+                <br>
+                <input type="submit" value="Update">
+                <br><br>
+            </form>
+            <form action="/users?_method=DELETE" method="POST">
+                <input type="submit" value="Delete Account">
+            </form>
+        </div>
+
+        <!-- Footer Block with Text -->
+        <% include ../partials/footer.ejs %>
+        
+    </body>
+</html>

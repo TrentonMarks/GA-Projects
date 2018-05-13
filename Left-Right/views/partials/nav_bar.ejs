@@ -1,0 +1,42 @@
+<!-- Nav Bar for Logged In Users -->
+<% if(currentUser) { %>
+    <!-- <img src="<%=currentUser.img%>" alt="FAILURE"> -->
+        <!-- Full Length of Nav Bar -->
+        <div class="user-nav">
+            <!-- Home Button -->
+            <form action="/" method="GET">
+                <input type="submit" value="Home">
+            </form>
+            <!-- 'Create a Post' -->
+            <form action="/posts/new" method="GET">
+                <input type="submit" value="Create Post">
+            </form>
+            <!-- 'Edit Profile' Button -->
+            <form action="users/:id/edit" method="GET">
+                <input type="submit" value="Edit Profile">
+            </form>
+            <!-- Logout Button -->
+            <form action="/sessions?_method=DELETE" method="POST">
+                <input type="submit" value="Logout">
+            </form>
+        </div>
+
+
+<!-- Nav Bar for Users NOT Logged In -->
+<% } else { %>
+        <!-- Full Length of Nav Bar -->
+        <div class="nonuser-nav">
+            <!-- Home Button -->
+            <form action="/" method="GET">
+                <input class="home-btn" type="submit" value="Home">
+            </form>
+            <!-- 'Create Account' Button -->
+            <form action="/users/new" method="GET">
+                <input type="submit" value="Create Account">
+            </form>
+            <!-- 'Log In' Button -->
+            <form action="/sessions/new" method="GET">
+                <input id="log-in-redirect" type="submit" value="Log In">
+            </form>
+        </div>
+<% } %>
