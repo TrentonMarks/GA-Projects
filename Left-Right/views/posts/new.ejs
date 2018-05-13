@@ -1,0 +1,29 @@
+<!-- NEW POST PAGE -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <link rel="stylesheet" href="/css/style.css">
+        <link href="https://fonts.googleapis.com/css?family=Cinzel" rel="stylesheet">
+        <meta charset="utf-8">
+        <title>Left.Right.</title>
+    </head>
+    <body>
+
+        <!-- Header Block with Title -->
+        <% include ../partials/header.ejs %>
+
+        <!-- Form that allows user to submit an image to post -->
+        <div class="container">
+            <form action="/posts" method="POST">
+                <h1>Create A Post</h1>
+                <input type="text" name="img" placeholder="Paste Image">
+                <br><br><br><br>
+                <input type="submit" value="Post">
+            </form>
+        </div>
+
+        <!-- Footer Block with Text -->
+        <% include ../partials/footer.ejs %>
+        
+    </body>
+</html>
