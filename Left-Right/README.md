@@ -23,4 +23,4 @@ IMPROVEMENTS:
           -- Deleting posts
           -- Adding an 'Account' tab that allows users to view their personal posts
           -- Adding a 'like'/'favorite' button
-          -- Add a 'Top 5 Posts' page
+          -- Add a 'Top 5 Posts' page 
