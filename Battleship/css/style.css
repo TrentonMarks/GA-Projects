@@ -1,6 +1,7 @@
 html {
     height: 100vh;
 }
+
 body {
     margin: auto;
     width: 100%;
@@ -27,7 +28,7 @@ body {
     justify-content: center;
 }
 
-button {
+#start {
     margin: 0 auto;
     margin-top: 200px;
     background-color: transparent;
@@ -41,11 +42,11 @@ button {
     font-family: Orbitron;
 }
 
-button:active {
+#start:active {
     filter: brightness(50%);
 }
 
-button:focus {
+#start:focus {
     outline: none;
 }
 
@@ -97,9 +98,9 @@ button:focus {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
-    margin-right: auto;
     padding-left: 100px;
     padding-bottom: 120px;
+    margin-right: 175px;
 }
 
 .ai-container {
@@ -109,8 +110,8 @@ button:focus {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-around;
-    margin-left: auto;
     padding-right: 100px;
+    margin-left: 175px;
 }
 
 .ai-container:hover {
@@ -162,4 +163,124 @@ a:active {
 
 a:focus {
     outline: none;
+}
+/* title and button screen size response */
+@media screen and (max-width: 900px), screen and (max-height: 900px) {
+    #battleship, #galactica {
+        font-size: 72px;
+        transition: 0.5s;
+    }
+    #start {
+        border: 1.5px solid white;
+        padding: 10px 22px;
+        font-size: 18px;
+        transition: 0.5s;
+    }
+}
+
+@media screen and (max-width: 650px), screen and (max-height: 650px) {
+    #battleship, #galactica {
+        font-size: 52px;
+        transition: 0.5s;
+    }
+    #start {
+        border: 1.25px solid white;
+        padding: 7.5px 15.5px;
+        font-size: 12px;
+        transition: 0.5s;
+    }
+}
+/* gameboard screen size response */
+@media screen and (max-width: 1450px), screen and (max-height: 900px) {
+    .ai-container, .user-container {
+        height: 300px;
+        width: 300px;
+        transition: 0.3s;
+    }
+    .ai-container {
+        margin-left: 125px;
+        transition: 0.3s;
+    }
+    .user-container {
+        margin-right: 125px;
+        transition: 0.3s;
+    }
+    a {
+        border: 1.5px solid white;
+        padding: 12.5px 25px;
+        font-size: 20px;
+        transition: 0.3s;
+    }
+}
+
+@media screen and (max-width: 1250px), screen and (max-height: 900px) {
+    .ai-container, .user-container {
+        height: 250px;
+        width: 250px;
+        transition: 0.3s;
+    }
+    .ai-container {
+        margin-left: 50px;
+        transition: 0.3s;
+    }
+    .user-container {
+        margin-right: 50px;
+        transition: 0.3s;
+    }
+    a {
+        border: 1.25px solid white;
+        padding: 10px 20px;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+}
+
+@media screen and (max-width: 800px), screen and (max-height: 750px) {
+    .ai-container, .user-container {
+        height: 200px;
+        width: 200px;
+        transition: 0.3s;
+    }
+    .ai-container {
+        margin-left: 25px;
+        transition: 0.3s;
+    }
+    .user-container {
+        margin-right: 25px;
+        transition: 0.3s;
+    }
+    a {
+        border: none;
+        transition: 0.3s;
+        height: 25px;
+    }
+    a:hover {
+        color: lightblue;
+        background-color: transparent;
+    }
+}
+
+@media screen and (max-width: 650px), screen and (max-height: 650px) {
+    .ai-container, .user-container {
+        height: 150px;
+        width: 150px;
+        transition: 0.3s;
+    }
+    .ai-container {
+        margin-left: 12.5px;
+        transition: 0.3s;
+    }
+    .user-container {
+        margin-right: 12.5px;
+        transition: 0.3s;
+    }
+    a {
+        border: none;
+        transition: 0.3s;
+        height: 25px;
+    }
+    a:hover {
+        color: lightblue;
+        background-color: transparent;
+    }
 }
