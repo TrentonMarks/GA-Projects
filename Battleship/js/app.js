@@ -140,7 +140,11 @@ $(()=>{
         }
         // Removes the board and replaces a gameover message
         drawLost () {
-            $(this.containerSelector).empty().append('<h1>You Lost</h1>').append('<a href="">Play Again</a>');
+            if (this.isUserMap) {
+                $(this.containerSelector).empty().append('<h1>You Lost</h1>').append('<a href="">Play Again</a>')
+            } else {
+                $(this.containerSelector).empty().append('<h1>You Won!</h1>').append('<a href="">Play Again</a>')
+            };
         }
         // Proccesss shot
         // If the targeted square was occupied, it will be classified as an 'h' and will increment the number of times the board has been hit by 1
@@ -171,7 +175,7 @@ $(()=>{
                 column = this.getRandomNumber(this.getColumns() - 1);
             } while (this.squareHasBeenTargeted(row, column));
             this.processShot(row, column);
-        }
+        };
         // Sets up the user's shot to be ready to process
         // Helps for reading and comprehending the code
         userShot(row, column) {
@@ -208,9 +212,13 @@ $(()=>{
                     if (!this.isUserMap && !this.squareHasBeenMissed(row, column) && !this.squareHasBeenHit(row, column)) {
 
                         $column.mouseenter(()=>{
-                            $column.css({
-                                'background-color': 'white'
-                            });
+                            if (this.opponent.hits == this.opponent.hitsToWin){
+                                ''
+                            } else {
+                                $column.css({
+                                    'background-color': 'white'
+                                });
+                            }
                         });
                         $column.mouseleave(()=>{
                             $column.css({
@@ -219,8 +227,16 @@ $(()=>{
                         });
 
                         $column.click(()=>{
-                            this.userShot(row, column);
-                            this.opponent.aiShot(row, column);
+                            if (this.opponent.hits == this.opponent.hitsToWin) {
+                                ''
+                            } else {
+                                this.userShot(row, column);
+                                if (this.hits == this.hitsToWin) {
+                                    ''
+                                } else {
+                                    this.opponent.aiShot(row, column);
+                                }
+                            }
                         });
                     }
                     $row.append($column);
