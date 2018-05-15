@@ -28,7 +28,6 @@ $(()=>{
             this.generateMatrix();
             this.draw();
         }
-
         // Creates a matrix to allow for coordinates
         generateMatrix() {
             let newRow;
@@ -44,22 +43,18 @@ $(()=>{
         setOpponent(map) {
             this.opponent = map;
         }
-
         // Gets rows
         getRows() {
             return this.rows;
         }
-
         // Gets columns
         getColumns() {
             return this.columns;
         }
-
         // Returns a random number between 0 and 1
         getRandomNumber(size) {
             return Math.floor(Math.random() * size) + 1;
         }
-
         // Randomly selects if a ship is vertical or horizontal
         // The do/while loop eliminates the rows/columns a ship cannot be placed based on the ship's orientation (vertical/horizontal) and size
         generateCoordinates(ship) {
@@ -83,14 +78,13 @@ $(()=>{
 
             return coordinates;
         }
-
         // Adds the ship's coordinates to the matrix
         addShipCoordinatesToMatrix(coordinates) {
             coordinates.forEach(coordinate => {
                 this.matrix[coordinate[0]][coordinate[1]] = 'o';
             });
         }
-
+        // Generates starting coordinates
         generateCoordinatesFromStartLocation(startLocation, size, isVertical) {
             let coordinates = [];
             let row = startLocation[0];
@@ -105,7 +99,6 @@ $(()=>{
             };
             return coordinates;
         }
-
         // Pushes the coordinates of the ship into an array
         addShip(ship) {
             const coordinates = this.generateCoordinates(ship);
@@ -114,7 +107,6 @@ $(()=>{
             this.hitsToWin += ship.getSize();
             this.draw();
         }
-
         // Determines if a square is occupied and valid to place ship
         coordinatesAreValid (coordinates) {
             let isValid = true;
@@ -126,37 +118,30 @@ $(()=>{
             });
             return isValid;
         }
-
         // If a square is occupied it will be classified as 'o'
         squareIsOccupied(row, column) {
             return this.matrix[row][column] == 'o';
         }
-
         // If a square is empty it will be classified as 'e'
         squareIsEmpty(row, column) {
             return this.matrix[row][column] == 'e';
         }
-
         // If a square has been hit it will be classified as 'h'
         squareHasBeenHit(row, column) {
             return this.matrix[row][column] == 'h';
         }
-
         // If a square has been targeted but was unoccupied, it will be 'm'
         squareHasBeenMissed(row, column) {
             return this.matrix[row][column] == 'm';
         }
-
         // If a square has been targeted, it will either have been 'h' or 'm'
         squareHasBeenTargeted(row, column) {
             return this.squareHasBeenHit(row, column) || this.squareHasBeenMissed(row, column);
         }
-
         // Removes the board and replaces a gameover message
         drawLost () {
             $(this.containerSelector).empty().append('<h1>You Lost</h1>').append('<a href="">Play Again</a>');
         }
-
         // Proccesss shot
         // If the targeted square was occupied, it will be classified as an 'h' and will increment the number of times the board has been hit by 1
         // If it was unoccupied, it will be classified as a 'm'
@@ -175,7 +160,6 @@ $(()=>{
             }
             console.log(this);
         }
-
         // Randomly selects a single square from the opponents board to target
         // Processes the shot for the targeted square
         aiShot() {
@@ -188,13 +172,11 @@ $(()=>{
             } while (this.squareHasBeenTargeted(row, column));
             this.processShot(row, column);
         }
-
         // Sets up the user's shot to be ready to process
         // Helps for reading and comprehending the code
         userShot(row, column) {
             this.processShot(row, column);
         }
-
         // Method that draws the board after each action that takes placed on it
         // Uses a 'for-loop' nested within another 'for-loop' to create boards
         // Adds classes to square: 'occupied', 'hit', 'miss'
@@ -210,17 +192,32 @@ $(()=>{
                         .addClass('column');
 
                     if(this.squareIsOccupied(row, column) && this.isUserMap) {
+                        // $column.removeClass('untargeted');
                         $column.addClass('occupied');
                     }
                     if (this.squareHasBeenHit(row, column)) {
+                        // $column.removeClass('untargeted');
                         $column.addClass('hit');
                     }
                     if (this.squareHasBeenMissed(row, column)) {
+                        // $column.removeClass('untargeted');
                         $column.addClass('miss');
                     }
                     // If NOT the users map, square is targeted upon user click
                     // The AI automatically shots right after the user's shot is processed
-                    if (!this.isUserMap) {
+                    if (!this.isUserMap && !this.squareHasBeenMissed(row, column) && !this.squareHasBeenHit(row, column)) {
+
+                        $column.mouseenter(()=>{
+                            $column.css({
+                                'background-color': 'white'
+                            });
+                        });
+                        $column.mouseleave(()=>{
+                            $column.css({
+                                'background-color': '#bfc5cc'
+                            });
+                        });
+
                         $column.click(()=>{
                             this.userShot(row, column);
                             this.opponent.aiShot(row, column);
@@ -243,15 +240,18 @@ $(()=>{
     // Mouseenter
     $('#start').mouseenter(()=>{
         $('#start').css({
-            'background-color': 'gray',
-            'font-size': '28px'
+            'color': 'lightblue',
+            'border-color': 'lightblue',
+            'background-color': 'rgba(0, 0, 0, 0.5)'
+
         });
     });
     // Mouseleave
     $('#start').mouseleave(()=>{
         $('#start').css({
-            'background-color': 'transparent',
-            'font-size': '24px'
+            'color': 'white',
+            'border-color': 'white',
+            'background-color': 'transparent'
         });
     });
     // On Click
