@@ -141,9 +141,9 @@ $(()=>{
         // Removes the board and replaces a gameover message
         drawLost () {
             if (this.isUserMap) {
-                $(this.containerSelector).empty().append('<h1>You Lost</h1>').append('<a href="">Play Again</a>')
+                $(this.containerSelector).empty().append('<div class="end-game-header"><h1 class="h1">You Lost</h1><a href="">Home</a></div>')
             } else {
-                $(this.containerSelector).empty().append('<h1>You Won!</h1>').append('<a href="">Play Again</a>')
+                $(this.containerSelector).empty().append('<div class="end-game-header"><h1 class="h1">You Won!</h1><a href="">Home</a></div>')
             };
         }
         // Proccesss shot
@@ -258,8 +258,8 @@ $(()=>{
         $('#start').css({
             'color': 'lightblue',
             'border-color': 'lightblue',
-            'background-color': 'rgba(0, 0, 0, 0.5)'
-
+            'background-color': 'rgba(0, 0, 0, 0.5)',
+            'cursor': 'pointer'
         });
     });
     // Mouseleave

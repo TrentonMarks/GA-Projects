@@ -38,6 +38,14 @@ button {
     font-family: Orbitron;
 }
 
+button:active {
+    filter: brightness(50%);
+}
+
+button:focus {
+    outline: none;
+}
+
 .row {
     display: flex;
     flex: 1;
@@ -99,8 +107,43 @@ button {
     margin-top: 100px;
 }
 
-h1 {
-    color: white;
+.end-game-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.h1 {
     font-size: 48px;
+    color: white;
     font-family: Orbitron;
+}
+
+a {
+    margin: 0 auto;
+    margin-top: 100px;
+    background-color: transparent;
+    border: 2.25px solid white;
+    border-radius: 10px;
+    color: white;
+    padding: 15px 32px;
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    font-family: Orbitron;
+    text-decoration: none;
+}
+
+a:hover {
+    color: lightblue;
+    border-color: lightblue;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+a:active {
+    filter: brightness(50%)
+}
+
+a:focus {
+    outline: none;
 }
