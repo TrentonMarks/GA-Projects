@@ -215,15 +215,11 @@ $(()=>{
                             if (this.opponent.hits == this.opponent.hitsToWin){
                                 ''
                             } else {
-                                $column.css({
-                                    'background-color': 'white'
-                                });
+                                $column.addClass('column-mouseenter');
                             }
                         });
                         $column.mouseleave(()=>{
-                            $column.css({
-                                'background-color': '#bfc5cc'
-                            });
+                            $column.removeClass('column-mouseenter');
                         });
 
                         $column.click(()=>{
@@ -274,6 +270,7 @@ $(()=>{
     $('#start').one('click', ()=>{
 
         $('#start').remove();
+        $('body').append("<div class='gameboard'><div class='user-container'></div><div class='ai-container'></div></div>")
 
 
         /*======== USER AND AI'S INSTANTIATED GAMEBOARDS ========*/

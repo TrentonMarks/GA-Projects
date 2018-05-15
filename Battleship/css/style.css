@@ -1,3 +1,6 @@
+html {
+    height: 100vh;
+}
 body {
     margin: auto;
     width: 100%;
@@ -58,6 +61,15 @@ button:focus {
     margin: 5px;
 }
 
+.column-mouseenter {
+    background: white;
+}
+
+.column-mouseenter:active {
+    filter: brightness(75%);
+    opacity: 0.5;
+}
+
 .column.occupied {
     background-color: #c9673a;
     opacity: .85;
@@ -99,6 +111,10 @@ button:focus {
     justify-content: space-around;
     margin-left: auto;
     padding-right: 100px;
+}
+
+.ai-container:hover {
+    cursor: pointer;
 }
 
 .gameboard {
